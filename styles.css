@@ -132,7 +132,7 @@ main {
 /* Hero Section */
 .hero {
     background: linear-gradient(135deg, #f8f9fa 0%, #dadada 100%);
-    padding: 60px 0;
+    padding: 4% 3%;
     width: 100%;
 }
 
@@ -178,7 +178,7 @@ main {
 
 /* App Download Section */
 .app-download {
-    padding: 50px;
+    padding: 4%;
     background: #fff;
     text-align: center;
     width: 100%;
@@ -248,7 +248,7 @@ main {
 
 /* About Sections */
 .about-section {
-    padding: 50px 80px;
+    padding: 4% 5%;
     width: 100%;
     background-color: #c6c6c6;
 }
@@ -296,7 +296,7 @@ main {
 
 /* Benefits Section */
 .benefits {
-    padding: 60px 80px 30px 80px;
+    padding: 3% 4% 2% 4%;
     background: #f8f9fa;
     width: 100%;
 }
@@ -346,7 +346,7 @@ main {
 
 /* Newsletter Section */
 .newsletter {
-    padding: 80px 0;
+    padding: 4% 2%;
     background: #2c3e50;
     color: #fff;
     text-align: center;
@@ -372,18 +372,18 @@ main {
 .form-group {
     display: flex;
     flex-direction: column;
-    gap: 15px;
+    gap: 10px;
 }
 
 .form-group input {
-    padding: 15px;
+    padding-top: 2%;
     border: none;
     border-radius: 5px;
     font-size: 1rem;
 }
 
 .form-group button {
-    padding: 15px;
+    padding: 2%;
     background: #e91e63;
     color: #fff;
     border: none;
@@ -421,7 +421,7 @@ main {
 .footer {
     background: #1a252f;
     color: #fff;
-    padding: 40px 0 20px;
+    padding: 4% 2% 2% 2%;
     width: 100%;
 }
 
@@ -467,31 +467,6 @@ main {
 
 .footer-social .whatsapp-link:hover {
     background: #128c7e;
-}
-
-.footer-bottom {
-    border-top: 1px solid #333;
-    padding-top: 20px;
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-    align-items: center;
-    text-align: center;
-}
-
-.footer-bottom p {
-    font-size: 0.9rem;
-    opacity: 0.7;
-}
-
-.footer-bottom a {
-    color: #e91e63;
-    text-decoration: none;
-}
-
-.footer-complaint img {
-    height: 40px;
-    width: auto;
 }
 
 /* Responsive Design */
@@ -575,7 +550,7 @@ main {
     
     .form-group button {
         width: auto;
-        padding: 15px 30px;
+        padding: 1% 3%;
     }
     
     /* Footer */
@@ -763,6 +738,19 @@ input:focus {
 }
 
 .submit-btn {
+    background: #e91e63;
+    color: #fff;
+    border: none;
+    padding: 15px 30px;
+    border-radius: 5px;
+    font-size: 1.1rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    align-self: flex-start;
+}
+
+.submit {
     background: #e91e63;
     color: #fff;
     border: none;
