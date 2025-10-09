@@ -160,25 +160,25 @@ main {
 
 .hero-image {
     width: 100%;
-    max-width: 500px;
+    justify-content: center;
 }
 
 .hero-img-desktop {
     display: none;
-    width: 100%;
+    width: 80%;
     height: auto;
 }
 
 .hero-img-mobile {
     display: block;
-    width: 100%;
+    width: 80%;
     height: auto;
     border-radius: 10px;
 }
 
 /* App Download Section */
 .app-download {
-    padding: 50px 0;
+    padding: 50px;
     background: #fff;
     text-align: center;
     width: 100%;
@@ -248,12 +248,13 @@ main {
 
 /* About Sections */
 .about-section {
-    padding: 80px 0;
+    padding: 50px 80px;
     width: 100%;
+    background-color: #c6c6c6;
 }
 
 .about-section:nth-child(even) {
-    background: #dadada;
+    background: #d1d1d1;
 }
 
 .about-content {
@@ -288,14 +289,14 @@ main {
 }
 
 .about-video video {
-    width: 65%;
+    width: 70%;
     align-items: center;
     box-shadow: 0 10px 30px rgba(0,0,0,0.1);
 }
 
 /* Benefits Section */
 .benefits {
-    padding: 80px 0;
+    padding: 60px 80px 30px 80px;
     background: #f8f9fa;
     width: 100%;
 }
@@ -639,7 +640,7 @@ input:focus {
 .contact-hero {
     background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
     color: #fff;
-    padding: 100px 0;
+    padding: 100px 50px;
     text-align: center;
 }
 
@@ -656,7 +657,7 @@ input:focus {
 }
 
 .contact-form-section {
-    padding: 80px 0;
+    padding: 80px 60px;
     background: #f8f9fa;
 }
 
