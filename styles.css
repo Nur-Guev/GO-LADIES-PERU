@@ -838,9 +838,6 @@ input:focus {
     }
 }
 
-
-
-
 @media (min-width: 1024px) {
     .contact-form-container,
     .contact-info {
@@ -903,6 +900,12 @@ input:focus {
     .footer-content {
         padding: 0 10px; /* Padding extra */
     }    
+
+    .about-video video {
+    width: 25px;
+    align-items: center;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+}
 }
 
 /* Print Styles */
