@@ -901,11 +901,15 @@ input:focus {
         padding: 0 10px; /* Padding extra */
     }    
 
-    .about-video video {
+    .about-video {
     width: 25px;
+    }
+
+    .about-video video {
+    width: 10px;
     align-items: center;
     box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-}
+    }
 }
 
 /* Print Styles */
