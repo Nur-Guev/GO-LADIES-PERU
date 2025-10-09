@@ -637,7 +637,7 @@ input:focus {
 .contact-hero {
     background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
     color: #fff;
-    padding: 100px 0 60px;
+    padding: 100px 0 100px;
     text-align: center;
 }
 
