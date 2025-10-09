@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contáctanos - Go ladies Perú</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Skip to content link -->
+    <a href="#content" class="skip-link">Ir al contenido</a>
+
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="nav-brand">
+                <a href="index.html">
+                    <img src="logo-goladies.jpg" alt="Go ladies" class="logo">
+                </a>
+            </div>
+            
+            <!-- Desktop Navigation -->
+            <nav class="nav-desktop">
+                <ul class="nav-list">
+                    <li><a href="index.html">Inicio</a></li>
+                    <li><a href="index.html#descargar">Descargar</a></li>
+                    <li><a href="unete-a-nuestra-familia.html">Únete a nuestra familia</a></li>
+                    <li><a href="contacto.html" class="active">Contáctanos</a></li>
+                </ul>
+            </nav>
+
+            <!-- Mobile Navigation Toggle -->
+            <button class="nav-toggle" id="navToggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+
+            <!-- Mobile Navigation -->
+            <nav class="nav-mobile" id="navMobile">
+                <ul class="nav-list-mobile">
+                    <li><a href="index.html#descargar">Descargar</a></li>
+                    <li><a href="contacto.html" class="active">Contáctanos</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main id="content">
+        <!-- Contact Hero Section -->
+        <section class="contact-hero">
+            <div class="container">
+                <h1>Contáctanos</h1>
+                <p>Estamos aquí para ayudarte. Ponte en contacto con nosotros para cualquier consulta sobre nuestros servicios de transporte seguro para mujeres.</p>
+            </div>
+        </section>
+
+        <!-- Contact Form Section -->
+        <section class="contact-form-section">
+            <div class="container">
+                <div class="contact-content">
+                    <div class="contact-form-container">
+                        <h2>Envíanos un mensaje</h2>
+                        <form class="contact-form" id="contactForm">
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="firstName">Nombre *</label>
+                                    <input type="text" id="firstName" name="firstName" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="lastName">Apellido *</label>
+                                    <input type="text" id="lastName" name="lastName" required>
+                                </div>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="email">Correo electrónico *</label>
+                                <input type="email" id="email" name="email" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="phone">Teléfono</label>
+                                <input type="tel" id="phone" name="phone">
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="subject">Asunto *</label>
+                                <select id="subject" name="subject" required>
+                                    <option value="">Selecciona un asunto</option>
+                                    <option value="informacion-general">Información general</option>
+                                    <option value="solicitar-servicio">Solicitar servicio</option>
+                                    <option value="problema-app">Problema con el servicio</option>
+                                    <option value="sugerencia">Sugerencia</option>
+                                    <option value="otro">Otro</option>
+                                </select>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="message">Mensaje *</label>
+                                <textarea id="message" name="message" rows="6" required placeholder="Escribe tu mensaje aquí..."></textarea>
+                            </div>
+                            
+                            <div class="form-group checkbox-group">
+                                <label class="checkbox-label">
+                                    <input type="checkbox" id="privacy" name="privacy" required>
+                                    <span class="checkmark"></span>
+                                    Acepto la <a href="politicas-de-privacidad.html" target="_blank">Política de Privacidad</a> y los <a href="terminos-y-condiciones.html" target="_blank">Términos y Condiciones</a> *
+                                </label>
+                            </div>
+                            
+                            <button type="submit" class="submit-btn">Enviar mensaje</button>
+                        </form>
+                    </div>
+                    
+                    <div class="contact-info">
+                        <h2>Información de contacto</h2>
+                        
+                        <div class="contact-item">
+                            <h3>Correo electrónico</h3>
+                            <p><a href="mailto:go.ladies.peru@gmail.com">go.ladies.peru@gmail.com</a></p>
+                            <p><a href="mailto:seleccion.goladies@gmail.com">seleccion.goladies@gmail.com</a></p>
+                        </div>
+                        
+                        <div class="contact-item">
+                            <h3>WhatsApp</h3>
+                            <p><a href="https://api.whatsapp.com/send?phone=51967710691" target="_blank">Enviar mensaje por WhatsApp</a></p>
+                        </div>
+                        
+                        <div class="contact-item">
+                            <h3>Horario de atención</h3>
+                            <p>24 horas ⌛</p>
+                            <p>Reservar los servicios con 1 hora de anticipación</p>
+                            <p>Para la madrugada, reservar hasta las 11pm</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                
+                <div class="footer-links">
+                    <ul>
+                        <li><a href="derechos-de-datos-personales.html">Derechos de Datos Personales</a></li>
+                        <li><a href="terminos-y-condiciones.html">Términos y Condiciones</a></li>
+                        <li><a href="politicas-de-privacidad.html">Políticas de Privacidad</a></li>
+                        <li><a href="politicas-de-uso.html">Políticas de Uso</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-social">
+                    <a href="https://wa.link/4v6mnp" target="_blank" class="whatsapp-link">
+                        <span>WhatsApp</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="scripts.js"></script>
+    <script src="contact.js"></script>
+</body>
+</html>
