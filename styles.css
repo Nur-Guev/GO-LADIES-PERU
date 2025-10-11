@@ -404,6 +404,10 @@ main {
     opacity: 0.9;
 }
 
+.newsletter .form-group {
+    flex-direction: column;
+}
+
 .newsletter-form {
     max-width: 400px;
     margin: 0 auto 40px;
@@ -580,6 +584,10 @@ input:focus {
     padding: 40px;
     border-radius: 10px;
     box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+    margin: 0;
 }
 
 .contact-form-container,
@@ -592,6 +600,13 @@ input:focus {
     max-width: 100%;
     box-sizing: border-box;
     margin: 0;
+}
+
+.contact-form-container h2,
+.contact-info h2 {
+    font-size: 1.8rem;
+    color: #000;
+    margin-bottom: 30px;
 }
 
 .contact-form {
@@ -615,10 +630,9 @@ input:focus {
 
 .form-group {
     display: flex;
-    flex-direction: column;
+    flex-direction: column; /* Labels arriba, inputs abajo */
     position: relative;
     width: 100%;
-    max-width: 100%;
     box-sizing: border-box;
     margin: 0;
     padding: 0;
@@ -642,7 +656,6 @@ input:focus {
     transition: all 0.3s ease;
     background: #fff;
     width: 100%;
-    max-width: 100%;
     box-sizing: border-box;
     margin: 0;
 }
@@ -771,6 +784,8 @@ input:focus {
     font-weight: 600;
 }
 
+
+
 /* Responsive Design */
 @media (min-width: 768px) {
     /* Desktop Navigation */
@@ -842,8 +857,28 @@ input:focus {
     }
     
     /* Newsletter Form */
-    .form-group {
+    .newsletter .form-group {
         flex-direction: row;
+    }
+    
+    .newsletter .form-group input {
+        flex: 1;
+    }
+    
+    .newsletter .form-group button {
+        width: auto;
+        padding: 1% 3%;
+    }
+
+    .form-group {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .form-group label {
+        width: 100%;
+        margin-bottom: 8px;
     }
     
     .form-group input {
@@ -890,21 +925,29 @@ input:focus {
         gap: 60px;
     }
     
+    /* CRÍTICO: Form-row en 2 columnas SOLO en el HTML donde están juntos */
     .form-row {
         grid-template-columns: 1fr 1fr;
         gap: 20px;
     }
-
+    
+    /* Los form-group que NO están dentro de form-row ocupan TODO el ancho */
     .contact-form > .form-group {
         width: 100%;
-        max-width: 100%;
     }
-
-    .contact-form > .form-group input,
-    .contact-form > .form-group select,
-    .contact-form > .form-group textarea {
+    
+    /* Todos los inputs, selects y textareas al 100% */
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
         width: 100%;
-        max-width: 100%;
+        min-width: 0; /* Importante para que no se limite */
+    }
+    
+    /* Títulos en negro */
+    .contact-form-container h2,
+    .contact-info h2 {
+        color: #000;
     }
     
     .app-download-links {
@@ -1096,7 +1139,7 @@ input:focus {
         max-width: 100%;
         box-sizing: border-box;
     }
-
+    
     .form-row {
         grid-template-columns: 1fr;
         gap: 20px;
@@ -1129,22 +1172,20 @@ input:focus {
         border-radius: 10px;
         box-shadow: 0 10px 30px rgba(0,0,0,0.1);
     }
-}
 
-@supports (-webkit-touch-callout: none) {
-    .form-group input,
-    .form-group select,
-    .form-group textarea {
-        -webkit-box-sizing: border-box;
-        width: 100% !important;
-        max-width: 100% !important;
+    .checkbox-group {
+        align-items: flex-start;
     }
     
-    .contact-form-container,
-    .contact-info {
-        -webkit-box-sizing: border-box;
-        width: 100% !important;
-        max-width: 100% !important;
+    .checkbox-label {
+        font-size: 0.85rem;
+        line-height: 1.4;
+    }
+    
+    .checkbox-label input[type="checkbox"] {
+        width: 16px;
+        height: 16px;
+        margin-top: 2px;
     }
 }
 
