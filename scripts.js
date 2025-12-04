@@ -333,5 +333,245 @@ document.addEventListener('DOMContentLoaded', function() {
 // Set initial volume for background audio
 window.addEventListener('load', function() {
     var audio = document.getElementById('AudioFondo');
-    audio.volume = 0.2; // 0.0 a 1.0
+    if (audio) {
+        audio.volume = 0.4; // 0.0 a 1.0
+    }
+});
+
+
+// ============================================
+// IMPLEMENTACIÓN DE JQUERY
+// 6 EVENTOS/EFECTOS + BANNER ANIMADO
+// ============================================
+
+$(document).ready(function() {
+    
+    // ============================================
+    // EVENTO 1: FADE IN/OUT EN HERO AL HACER SCROLL
+    // ============================================
+    $(window).scroll(function() {
+        var scroll = $(window).scrollTop();
+        var heroHeight = $('.hero').outerHeight();
+        
+        if (scroll < heroHeight) {
+            var opacity = 1 - (scroll / heroHeight);
+            $('.hero-content').css('opacity', opacity);
+        }
+    });
+    
+    
+    // ============================================
+    // EVENTO 2: EFECTO SLIDE DOWN/UP EN SECCIONES ABOUT
+    // ============================================
+    $('.about-text h2').css('cursor', 'pointer').click(function() {
+        $(this).next('p').slideToggle('slow');
+    });
+    
+    
+    // ============================================
+    // EVENTO 3: EFECTO HOVER CON SCALE EN IMÁGENES DE BENEFICIOS
+    // ============================================
+    $('.benefit-image img').hover(
+        function() {
+            $(this).stop().animate({
+                'transform': 'scale(1.05)'
+            }, 300).css({
+                'transform': 'scale(1.05)',
+                'transition': 'transform 0.3s ease'
+            });
+        },
+        function() {
+            $(this).stop().css({
+                'transform': 'scale(1)',
+                'transition': 'transform 0.3s ease'
+            });
+        }
+    );
+    
+    
+    // ============================================
+    // EVENTO 4: ANIMACIÓN TOGGLE EN FOOTER LINKS (MOBILE)
+    // ============================================
+    if ($(window).width() < 768) {
+        $('.footer-links ul').hide();
+        
+        $('<h4>Enlaces Útiles</h4>')
+            .css({
+                'color': '#fff',
+                'cursor': 'pointer',
+                'margin-bottom': '10px'
+            })
+            .prependTo('.footer-links')
+            .click(function() {
+                $('.footer-links ul').slideToggle('fast');
+            });
+    }
+    
+    
+    // ============================================
+    // EVENTO 5: EFECTO BOUNCE EN BOTONES DE DESCARGA
+    // ============================================
+    $('.download-btn').hover(
+        function() {
+            $(this).find('i').addClass('bounce-effect');
+        },
+        function() {
+            $(this).find('i').removeClass('bounce-effect');
+        }
+    );
+    
+    // Agregar CSS para el efecto bounce
+    $('<style>')
+        .text(`
+            @keyframes bounce {
+                0%, 100% { transform: translateY(0); }
+                50% { transform: translateY(-10px); }
+            }
+            .bounce-effect {
+                animation: bounce 0.5s ease infinite;
+            }
+        `)
+        .appendTo('head');
+    
+    
+    // ============================================
+    // EVENTO 6: EFECTO FADE IN PROGRESIVO EN BENEFIT ITEMS AL HACER SCROLL
+    // ============================================
+    $(window).scroll(function() {
+        $('.benefit-item').each(function() {
+            var elementTop = $(this).offset().top;
+            var viewportBottom = $(window).scrollTop() + $(window).height();
+            
+            if (elementTop < viewportBottom - 100) {
+                $(this).fadeIn(1000);
+            }
+        });
+    });
+    
+    // Inicialmente ocultar los benefit items
+    $('.benefit-item').hide();
+    
+    
+// ============================================
+    // BANNER ANIMADO CON JQUERY
+    // ============================================
+    
+    // Crear el HTML del banner
+    // CAMBIO REALIZADO: width: 60% (antes era 100%)
+    var bannerHTML = `
+        <div id="jquery-banner" style="position: relative; width: 60%; max-width: 1000px; margin: 40px auto; overflow: hidden; border-radius: 10px; box-shadow: 0 10px 30px rgba(0,0,0,0.2);">
+            <div class="banner-slides" style="display: flex; width: 400%; transition: transform 0.6s ease-in-out;">
+                <div class="banner-slide" style="width: 25%; flex-shrink: 0;">
+                    <img src="Unete-slash1.jpg" alt="Banner 1" style="width: 100%; height: auto; display: block;">
+                </div>
+                <div class="banner-slide" style="width: 25%; flex-shrink: 0;">
+                    <img src="hijos-slash2.jpg" alt="Banner 2" style="width: 100%; height: auto; display: block;">
+                </div>
+                <div class="banner-slide" style="width: 25%; flex-shrink: 0;">
+                    <img src="viajatranquilo-slash3.jpg" alt="Banner 3" style="width: 100%; height: auto; display: block;">
+                </div>
+                <div class="banner-slide" style="width: 25%; flex-shrink: 0;">
+                    <img src="trabaja-slash4.jpg" alt="Banner 4" style="width: 100%; height: auto; display: block;">
+                </div>
+            </div>
+            
+            <button class="banner-btn banner-prev" style="position: absolute; left: 20px; top: 50%; transform: translateY(-50%); background: rgba(233, 30, 99, 0.8); color: white; border: none; padding: 15px 20px; cursor: pointer; border-radius: 50%; font-size: 18px; z-index: 10;">❮</button>
+            <button class="banner-btn banner-next" style="position: absolute; right: 20px; top: 50%; transform: translateY(-50%); background: rgba(233, 30, 99, 0.8); color: white; border: none; padding: 15px 20px; cursor: pointer; border-radius: 50%; font-size: 18px; z-index: 10;">❯</button>
+            
+            <div class="banner-indicators" style="position: absolute; bottom: 20px; left: 50%; transform: translateX(-50%); display: flex; gap: 10px; z-index: 10;">
+                <span class="indicator active" data-slide="0" style="width: 12px; height: 12px; border-radius: 50%; background: #e91e63; cursor: pointer; transition: all 0.3s;"></span>
+                <span class="indicator" data-slide="1" style="width: 12px; height: 12px; border-radius: 50%; background: rgba(255,255,255,0.5); cursor: pointer; transition: all 0.3s;"></span>
+                <span class="indicator" data-slide="2" style="width: 12px; height: 12px; border-radius: 50%; background: rgba(255,255,255,0.5); cursor: pointer; transition: all 0.3s;"></span>
+                <span class="indicator" data-slide="3" style="width: 12px; height: 12px; border-radius: 50%; background: rgba(255,255,255,0.5); cursor: pointer; transition: all 0.3s;"></span>
+            </div>
+        </div>
+    `;
+    
+    // Insertar el banner después de la sección de beneficios
+    $('.benefits').after(bannerHTML);
+    
+    // Variables del banner
+    var currentSlide = 0;
+    var totalSlides = 4;
+    var autoplayInterval;
+    
+    // Función para actualizar el banner
+    function updateBanner() {
+        var offset = -(currentSlide * 25);
+        $('.banner-slides').css('transform', 'translateX(' + offset + '%)');
+        
+        // Actualizar indicadores
+        $('.indicator').css('background', 'rgba(255,255,255,0.5)');
+        $('.indicator[data-slide="' + currentSlide + '"]').css('background', '#e91e63');
+    }
+    
+    // Función para ir al siguiente slide
+    function nextSlide() {
+        currentSlide = (currentSlide + 1) % totalSlides;
+        updateBanner();
+    }
+    
+    // Función para ir al slide anterior
+    function prevSlide() {
+        currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
+        updateBanner();
+    }
+    
+    // Eventos de los botones
+    $('.banner-next').click(function() {
+        nextSlide();
+        resetAutoplay();
+    });
+    
+    $('.banner-prev').click(function() {
+        prevSlide();
+        resetAutoplay();
+    });
+    
+    // Eventos de los indicadores
+    $('.indicator').click(function() {
+        currentSlide = parseInt($(this).data('slide'));
+        updateBanner();
+        resetAutoplay();
+    });
+    
+    // Efecto hover en botones
+    $('.banner-btn').hover(
+        function() {
+            $(this).css('background', 'rgba(233, 30, 99, 1)');
+        },
+        function() {
+            $(this).css('background', 'rgba(233, 30, 99, 0.8)');
+        }
+    );
+    
+    // Autoplay del banner
+    function startAutoplay() {
+        autoplayInterval = setInterval(nextSlide, 4000);
+    }
+    
+    function resetAutoplay() {
+        clearInterval(autoplayInterval);
+        startAutoplay();
+    }
+    
+    // Pausar autoplay cuando el mouse está sobre el banner
+    $('#jquery-banner').hover(
+        function() {
+            clearInterval(autoplayInterval);
+        },
+        function() {
+            startAutoplay();
+        }
+    );
+    
+    // Iniciar autoplay
+    startAutoplay();
+    
+    // Hacer responsive el banner
+    $(window).resize(function() {
+        updateBanner();
+    });
+    
+    console.log('jQuery: 6 eventos/efectos + banner animado implementados correctamente');
 });
