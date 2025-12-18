@@ -1,0 +1,19 @@
+{
+  "testimonios": [
+    {
+      "nombre": "Ana María",
+      "mensaje": "Me sentí muy segura viajando con Go Ladies. ¡Excelente servicio!",
+      "calificacion": 5
+    },
+    {
+      "nombre": "Carla P.",
+      "mensaje": "La conductora fue muy amable y el auto estaba impecable.",
+      "calificacion": 5
+    },
+    {
+      "nombre": "Lucía R.",
+      "mensaje": "La mejor opción para enviar a mis hijos al colegio.",
+      "calificacion": 4
+    }
+  ]
+}
