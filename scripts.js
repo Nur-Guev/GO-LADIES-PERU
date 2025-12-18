@@ -69,13 +69,34 @@ document.addEventListener('DOMContentLoaded', function() {
             submitButton.textContent = 'Enviando...';
             submitButton.disabled = true;
             
-            // Simulate API call
-            setTimeout(() => {
-                showMessage('¡Gracias por suscribirte! Te mantendremos informada sobre nuestras ofertas y beneficios.', 'success');
+            // Simulación de POST a una API pública (JSONPlaceholder) para cumplir el requisito
+            
+            fetch('https://jsonplaceholder.typicode.com/posts', {
+                method: 'POST',
+                body: JSON.stringify({
+                    email: email, // la variable email que ya capturaste
+                    type: 'subscription'
+                }),
+                headers: {
+                    'Content-type': 'application/json; charset=UTF-8',
+                },
+            })
+
+            .then((response) => response.json())
+            .then((json) => {
+                // Éxito
+                showMessage('¡Gracias por suscribirte!', 'success');
                 emailInput.value = '';
                 submitButton.textContent = originalText;
                 submitButton.disabled = false;
-            }, 1500);
+            })
+
+            .catch((err) => {
+                // Error
+                showMessage('Error de conexión. Inténtalo de nuevo.', 'error');
+                submitButton.textContent = originalText;
+                submitButton.disabled = false;
+            });
         });
     }
 });
@@ -574,4 +595,47 @@ $(document).ready(function() {
     });
     
     console.log('jQuery: 6 eventos/efectos + banner animado implementados correctamente');
+});
+
+// ============================================
+// IMPLEMENTACIÓN TÉCNICA UNIDAD 4: JSON Y AJAX
+// ============================================
+
+document.addEventListener('DOMContentLoaded', function() {
+    
+    // 1. PETICIÓN GET (Consumir archivo JSON local) [Requisito: 33, 34]
+    const contenedor = document.getElementById('testimonios-container');
+    
+    if(contenedor) {
+        fetch('datos.json')
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Error al cargar el archivo JSON');
+                }
+                return response.json();
+            })
+            .then(data => {
+                // Limpiar mensaje de carga
+                contenedor.innerHTML = '';
+                
+                // Renderizado Dinámico del DOM [Requisito: 35]
+                data.testimonios.forEach(item => {
+                    const card = document.createElement('div');
+                    card.style.cssText = 'background: #f9f9f9; padding: 20px; border-radius: 10px; width: 300px; box-shadow: 0 4px 6px rgba(0,0,0,0.1);';
+                    
+                    card.innerHTML = `
+                        <h3 style="color: #e91e63;">${item.nombre}</h3>
+                        <p style="font-style: italic; margin: 10px 0;">"${item.mensaje}"</p>
+                        <div style="color: #FFD700;">${'★'.repeat(item.calificacion)}</div>
+                    `;
+                    
+                    contenedor.appendChild(card);
+                });
+            })
+            .catch(error => {
+                // Manejo de errores [Requisito: 36]
+                console.error('Error:', error);
+                contenedor.innerHTML = '<p style="color:red">Hubo un problema cargando los testimonios.</p>';
+            });
+    }
 });
